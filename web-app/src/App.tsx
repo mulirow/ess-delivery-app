@@ -4,8 +4,19 @@ import "./index.css";
 
 import appRouter from "./router";
 
+
+import { Header } from './pages/components/header/Header';
+import { Links } from './pages/components/links/Links';
+import { MainSupplier } from './pages/main_fornecedores/MainSupplier';
+import { Categories } from './pages/categories/Categories';
+import Promotions from './pages/promotions/Promotions';
 function App() {
-  return <RouterProvider router={appRouter} />;
+  return (
+    <div>
+      <Promotions />
+    </div>
+  );
+
 }
 
 export default App;
