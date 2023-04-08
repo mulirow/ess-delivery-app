@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from './LoginSuppliers.module.css'
+import { Header } from "../components/header/Header";
+import { SimpleHeader } from "../components/header/SimpleHeader";
 
 interface LoginFormProps {
   onLogin: (token: string) => void;
@@ -38,6 +40,8 @@ const LoginSuppliers: React.FC<LoginFormProps> = ({ onLogin }) => {
   };
 
   return (
+    <div>
+      <SimpleHeader />
     <form onSubmit={handleSubmit} className={styles.login}>
       <div>
         <label htmlFor="username">Username</label>
@@ -62,6 +66,7 @@ const LoginSuppliers: React.FC<LoginFormProps> = ({ onLogin }) => {
       {error && <div>{error}</div>}
       <button type="submit">Log In</button>
     </form>
+    </div>
   );
 };
 
