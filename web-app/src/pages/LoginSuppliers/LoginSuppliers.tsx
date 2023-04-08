@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from './LoginSuppliers.module.css'
-import { Header } from "../components/header/Header";
 import { SimpleHeader } from "../components/header/SimpleHeader";
+import { AuthContext } from "../../context/auth";
+import AuthService from "../../services/api/auth.service";
+
 
 interface LoginFormProps {
   onLogin: (token: string) => void;
@@ -11,32 +13,31 @@ const LoginSuppliers: React.FC<LoginFormProps> = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  console.log(username, password)
+
+  const authService = new AuthService();
+  const { login } = useContext(AuthContext);
+
   const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(event.target.value);
   };
 
-  const handlePasswordChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    let response: any = null;
 
-    const response = await fetch("http://localhost:8080/supplier/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    });
-
-    if (response.ok) {
-      const { token } = await response.json();
-      onLogin(token);
-    } else {
-      setError("Invalid username or password");
+    try {
+      response = await authService.get({ username, password }, true);
+      if(response.errorType) setError(response.message);
+      else login(response);
     }
+    catch(e) {
+      setError(response.message);
+    }
+
   };
 
   return (
