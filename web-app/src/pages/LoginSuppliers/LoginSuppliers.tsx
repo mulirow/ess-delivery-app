@@ -5,11 +5,8 @@ import { AuthContext } from "../../context/auth";
 import AuthService from "../../services/api/auth.service";
 
 
-interface LoginFormProps {
-  onLogin: (token: string) => void;
-}
 
-const LoginSuppliers: React.FC<LoginFormProps> = ({ onLogin }) => {
+const LoginSuppliers: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
