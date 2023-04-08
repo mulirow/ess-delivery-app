@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from './LoginSuppliers.module.css'
 
 interface LoginFormProps {
   onLogin: (token: string) => void;
@@ -37,7 +38,7 @@ const LoginSuppliers: React.FC<LoginFormProps> = ({ onLogin }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.login}>
       <div>
         <label htmlFor="username">Username</label>
         <input
