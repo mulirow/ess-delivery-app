@@ -59,7 +59,7 @@ export const RegisterSupplier = () => {
                     </i>
                   </label>
                   <input
-                    type="file" id="firstImg" accept=".png, .jpg, .jpeg"
+                    type="file" id="picture" accept=".png, .jpg, .jpeg"
                     style={{ display: "none" }}
                     onChange={(e) =>
                       inputHandler("picture", e.target.value)
@@ -69,6 +69,7 @@ export const RegisterSupplier = () => {
                 <div>
                   <h4 className="align-left">Descrição</h4>
                   <textarea
+                    id="description"
                     placeholder="Digite aqui sua descrição"
                     value={data.description}
                     onChange={(e) =>
@@ -83,6 +84,7 @@ export const RegisterSupplier = () => {
                   <div className="register-input">
                     <h4 className="align-left">Nome da empresa</h4>
                     <input
+                      id="picture"
                       type="text"
                       value={data.name}
                       onChange={(e) => inputHandler("name", e.target.value)}
@@ -91,6 +93,7 @@ export const RegisterSupplier = () => {
                   <div className="register-input">
                     <h4 className="align-left">E-mail</h4>
                     <input
+                      id="email"
                       type="email"
                       value={data.email}
                       onChange={(e) => inputHandler("email", e.target.value)}
@@ -101,6 +104,7 @@ export const RegisterSupplier = () => {
                   <div className="register-input">
                     <h4 className="align-left">Senha</h4>
                     <input
+                      id="password"
                       type="password"
                       value={data.password}
                       onChange={(e) => inputHandler("password", e.target.value)}
@@ -109,6 +113,7 @@ export const RegisterSupplier = () => {
                   <div className="register-input">
                     <h4 className="align-left">Confirme a sua senha</h4>
                     <input
+                      id="confirmPassword"
                       type="password"
                       value={data.confirmPassword}
                       onChange={(e) =>
@@ -121,6 +126,7 @@ export const RegisterSupplier = () => {
                   <div className="register-input">
                     <h4 className="align-left">Endereço</h4>
                     <input
+                      id="adress"
                       type="text"
                       value={data.address}
                       onChange={(e) => inputHandler("address", e.target.value)}
@@ -129,6 +135,7 @@ export const RegisterSupplier = () => {
                   <div className="register-input">
                     <h4 className="align-left">Complemento</h4>
                     <input
+                      id="complement"
                       type="text"
                       value={data.complement}
                       onChange={(e) =>
@@ -141,6 +148,7 @@ export const RegisterSupplier = () => {
                   <div className="register-input">
                     <h4 className="align-left">CNPJ</h4>
                     <input
+                      id="cnpj"
                       type="number"
                       value={data.cnpj}
                       onChange={(e) => inputHandler("cnpj", e.target.value)}
